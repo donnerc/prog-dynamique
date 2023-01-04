@@ -128,7 +128,7 @@ sont disjoints, comme dans le cas du tri fusion ou de la recherche dichotomique.
 Lorsque les sous-problèmes sont non disjoints, l'application naïve d'une
 stratégie de diviser pour régner débouche sur un algorithme très inefficace dont
 la complexité est :math:`\Theta(2^n)` si :math:`n` est la taille de l'entrée.
-C'est par exemple le cas si l'on calcule les nombres de Fibonacci de manière
+C'est par exemple le cas si l'on calcule les nombres de Fibonacci de cette manière.
 
 Différences avec la stratégie gloutonne
 =======================================
