@@ -185,9 +185,9 @@ En définitive, comme le dit le prof. Erik Demaine à ses étudiants du MIT
 dynamique est facile une fois qu'on en a compris les rouages.
 
 
-Pour faciliter la compréhension du sujet, ce rapport par du calcul récursif des
+Pour faciliter la compréhension du sujet, ce rapport part du calcul récursif des
 nombres de Fibonacci dans le chapitre :ref:`fibonacci` et explique pourquoi cet
-algorithme récursif est tellement inefficace en rappelant le modèe d'exécution
+algorithme récursif est tellement inefficace, en rappelant le modèle d'exécution
 des fonctions récursives. Il présente également les outils de base de la
 programmation dynamique pour améliorer la situation à l'aide de la mémoïsation
 et l'approche duale ascendante (bottom-up) qui construit la solution
