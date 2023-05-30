@@ -410,7 +410,7 @@ l'appel ``fib(6)``.
     L'animation ci-dessous montre les appels récursifs de la version mémoïsée
     ``fib(n=6)``.
 
-    ..  figure:: scripts/fib_memoized-6.gif
+    ..  figure:: figures/fib_memoized-6.gif
         :align: center
         :width: 40%
 
