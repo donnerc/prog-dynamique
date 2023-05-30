@@ -90,7 +90,7 @@ dans le tableau :ref:`table-knapsack-items-example-1`.
         noté dans une ligne à part entière dans le tableau.
 
     *   La colonne "Description" du tableau n'a aucune importance dans le
-        problème. On ne prend en compte que la volume et la valeur nutritive des
+        problème. On ne prend en compte que le volume et la valeur nutritive des
         aliments.
 
     *   On ne peut pas "ouvrir" un paquet de pâtes pour prendre la moitié du
@@ -536,7 +536,7 @@ et amène deux problèmes importants.
     :ref:`fig_knapsack_step1_tree`, les listes ``weights`` et ``profits``
     changent à chaque appel récursif. L'idée de la mémoïsation étant de
     sauvegarder la valeur de retour de la fonction pour chaque combinaison de
-    paramètre déjà rencontrés, il n'y aucune chance de pouvoir profiter de la
+    paramètre déjà rencontrés, il n'y a aucune chance de pouvoir profiter de la
     mémoïsation si les paramètres ``weights`` et ``profits`` changent à chaque
     appel récursif. En réalité, la seule chose qui change à chaque fois est la
     capacité restante du sac à dos et le numéro de l'objet que l'on est en train
@@ -863,14 +863,14 @@ knapsack problems".
     La version récursive et la version itérative calculent le profit maximal
     correctement.
     
-    Contrairement aux idées reçues l'algorithme récursif est la plupart du temps
-    plus rapide que l'algorithme itératif par tabulation, malgré le *overhead*
-    dû aux appels récursifs. Cela vient du fait que la version récursive fait
-    moins de travail inutile. En effet, la version itérative qui construit la
-    solution petit à petit doit écrire dans ``memo[k][c]`` pour tout :math:`0
-    \leq k \leq N` et pour tout :math:`0 \leq c \leq C`, ce qui fait
-    :math:`(N+1)\cdot (C+1)` écritures, alors que la récursion ne fait que les
-    appels strictement nécessaires.
+    Contrairement aux idées reçues, l'algorithme récursif est la plupart du
+    temps plus rapide que l'algorithme itératif par tabulation, malgré le
+    *overhead* dû aux appels récursifs. Cela vient du fait que la version
+    récursive fait moins de travail inutile. En effet, la version itérative, qui
+    construit la solution petit à petit, doit écrire dans ``memo[k][c]`` pour
+    tout :math:`0 \leq k \leq N` et pour tout :math:`0 \leq c \leq C`, ce qui
+    fait :math:`(N+1)\cdot (C+1)` écritures, alors que la récursion ne fait que
+    les appels strictement nécessaires.
 
     La version itérative est de ce fait particulièrement pénalisée dans le cas
     de l'instance ``f8_l-d_kp_23_10000`` où la capacité :math:`C = 10000` du sac
@@ -921,8 +921,8 @@ tableau construit pendant le processus itératif.
 Pour cela, il faut comprendre la manière dont est rempli le tableau lors de la
 construction de la solution. Pour bien comprendre, prenons une instance plus
 simple du problème dans laquelle la capacité du sac à dos vaut :math:`C=8`, les
-profits sont ``weights = [2, 3, 4, 5]`` et les profits ``profits = [1, 2, 5,
-6]``. La figure :ref:`dp-kp-fill-table-step-01`  présente une représentation du
+poids sont ``weights = [2, 3, 4, 5]`` et les profits ``profits = [1, 2, 5, 6]``.
+La figure :ref:`dp-kp-fill-table-step-01`  présente une représentation du
 problème avec le tableau dynamique (9 colonnes de droite). Les trois colonnes de
 gauche représentent les données du problème.
 
@@ -968,8 +968,8 @@ gauche représentent les données du problème.
             remaining = c - weights[k]
             profit_with = memo[k+1][remaining] + profits[k]
 
-        À l'issue de cette étape, ``profit_with`` vaut 6 qui correspond au
-        profit maximal. On stocke donc cette valeur dans ``memo[k][c]`` avec 
+        À l'issue de cette étape, ``profit_with`` vaut 6 et correspond au profit
+        maximal. On stocke donc cette valeur dans ``memo[k][c]`` avec 
 
         ::
 
@@ -977,7 +977,7 @@ gauche représentent les données du problème.
             memo[k][c] = best_profit
 
     *   La formule générale pour remplir le tableau, qui découle directement de
-        l'algorithme, est donc la suivante
+        l'algorithme, est donc la suivante:
 
         ::
 
@@ -1017,9 +1017,9 @@ Le tableau, entièrement rempli est montré dans la figure
         Cette situation correspond aux étiquettes 1 et 4 dans la figure
         :ref:`dp-kp-fill-table-complete`.
 
-    #.  Si, en revanche, ``memo[k][c] == memo[k+1][c] + P[k]``, ce que l'objet
-        :math:`k` de la ligne actuelle contribue au profit maximal. On le
-        rajoute donc dans le sac en posant :math:`x_k = 1`. On recommence au
+    #.  Si, en revanche, ``memo[k][c] == memo[k+1][c] + P[k]``, c'est que
+        l'objet :math:`k` de la ligne actuelle contribue au profit maximal. On
+        le rajoute donc dans le sac en posant :math:`x_k = 1`. On recommence au
         point 1, mais en montant d'une ligne pour considérer le prochain objet.
         Comme on a rajouté l'objet :math:`k`, il y a moins de place restante
         dans le sac à dos et il faut donc aussi décaler de :math:`W[k]` colonnes
@@ -1064,7 +1064,7 @@ Complexité spatiale
 Un des talons d'Achille des algorithmes de programmation dynamique est leur
 forte consommation mémoire. En effet, la complexité spatiale des algorithmes
 récursifs et itératifs sont également de complexité :math:`\Theta(N \cdot C)` vu
-que la table de mémoïsation doit dans les deux cas stocker :math:`(N+1)\cdot
+que la table de mémoïsation doit, dans les deux cas, stocker :math:`(N+1)\cdot
 (C+1)` valeurs différentes.
 
 Dans le cas où l'on n'a pas besoin de reconstruire la solution, mais où l'on ne
